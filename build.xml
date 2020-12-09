@@ -932,7 +932,7 @@
 
 	<target name="resolve" description="Retrieve dependencies with Apache Ivy">
 		<delete dir="${dir.lib}/ivy" />
-		<ivy:retrieve pattern="${dir.lib}/ivy/[type]/[artifact].[ext]" />
+		<ivy:retrieve pattern="${dir.lib}/ivy/[type]/[artifact](-[classifier]).[ext]" />
 
 		<antcall target="resolve-import-native">
 			<param name="arch" value="mac-x86_64" />
@@ -986,7 +986,10 @@
 
 
 	<target name="resolve-import-native">
-		<unzip src="${dir.lib}/ivy/jar/jna.jar" dest="${dir.lib}/native/${arch}" overwrite="yes">
+		<unzip dest="${dir.lib}/native/${arch}" overwrite="yes">
+		    <fileset dir="${dir.lib}/ivy/jar/">
+				<include name="jna.jar"/>
+			</fileset>
 			<patternset>
 				<include name="**/${arch.jna}/*.dll" />
 				<include name="**/${arch.jna}/*.so" />
@@ -997,7 +1000,10 @@
 			</chainedmapper>
 		</unzip>
 
-		<unzip src="${dir.lib}/ivy/jar/sevenzipjbinding-all-platforms.jar" dest="${dir.lib}/native/${arch}" overwrite="yes">
+		<unzip dest="${dir.lib}/native/${arch}" overwrite="yes">
+		<fileset dir="${dir.lib}/ivy/jar/">
+			<include name="sevenzipjbinding-all-platforms-*.jar"/>
+		</fileset>
 			<patternset>
 				<include name="**/${arch.7zj}/*.dll" />
 				<include name="**/${arch.7zj}/*.so" />

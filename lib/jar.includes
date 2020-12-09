@@ -58,3 +58,4 @@ ivy/bundle/failureaccess.jar
 jars/xmlrpc.jar
 jars/ObjCBridge.jar
 jars/darcula.jar
+jars/jfxrt.jar

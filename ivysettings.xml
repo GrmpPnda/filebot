@@ -1,0 +1,10 @@
+<ivysettings>
+    <settings defaultResolver="central"/>
+    <resolvers>
+            <ibiblio name="central" m2compatible="true"/>
+            <ibiblio name="imagej" m2compatible="true" root="http://maven.imagej.net/content/repositories/public/"/>
+    </resolvers>
+	    <modules>
+        <module organisation=" com.github.brianfrankcooper.YCSB" name="core" resolver="imagej"/>
+    </modules>
+</ivysettings>
