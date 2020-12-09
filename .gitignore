@@ -5,7 +5,7 @@ dist
 release
 cache
 ivy
-lib/native/*
+lib/native
 
 QuickLook
 
